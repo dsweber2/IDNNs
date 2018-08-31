@@ -129,13 +129,10 @@ def estimate_IY_by_network(data, labels, from_layer=0):
     return I_TY, acc
 
 
-def calc_varitional_information(data, labels, model_path, layer_numer, num_of_layers, epoch_index, input_size,
+def calc_variational_information(data, labels, model_path, layer_numer, num_of_layers, epoch_index, input_size,
                                 layerSize, sigma, pys, ks,
-                                search_sigma=False, estimate_y_by_network=False):
-    """Calculate estimation of the information using vartional IB"""
-    # Assumpations
-    estimate_y_by_network = True
-    # search_sigma = False
+                                search_sigma=False, estimate_y_by_network=True):
+    """Calculate estimation of the information using variational IB"""
     data_x = data.reshape(data.shape[0], -1)
 
     if search_sigma:
@@ -175,4 +172,3 @@ def estimate_Information(Xs, Ys, Ts):
 	# estimate_IXT1 = ee.mi(Xs, Ts)
 	# estimate_IYT1 = ee.mi(Ys, Ts)
 	return estimate_IXT, estimate_IYT
-
